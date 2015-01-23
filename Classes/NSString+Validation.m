@@ -31,7 +31,7 @@
 }
 
 //--------------------------------------------------------------
-- (BOOL)validateMatchesConfirmation:(NSString *)confirmation 
+- (BOOL)validateMatchesConfirmation:(NSString *)confirmation
 {
     return [self isEqualToString:confirmation];
 }
@@ -45,19 +45,19 @@
 //--------------------------------------------------------------
 - (BOOL)validateAlpha
 {
-    return [self validateInCharacterSet:[NSCharacterSet letterCharacterSet]];
+    return [self validateInCharacterSet:[[NSCharacterSet letterCharacterSet] mutableCopy]];
 }
 
 //--------------------------------------------------------------
 - (BOOL)validateAlphanumeric
 {
-    return [self validateInCharacterSet:[NSCharacterSet alphanumericCharacterSet]];
+    return [self validateInCharacterSet:[[NSCharacterSet alphanumericCharacterSet] mutableCopy]];
 }
 
 //--------------------------------------------------------------
 - (BOOL)validateNumeric
 {
-    return [self validateInCharacterSet:[NSCharacterSet decimalDigitCharacterSet]];
+    return [self validateInCharacterSet:[[NSCharacterSet decimalDigitCharacterSet] mutableCopy]];
 }
 
 //--------------------------------------------------------------
@@ -78,7 +78,7 @@
 
 //--------------------------------------------------------------
 // Alphanumeric characters, underscore (_), and period (.)
-- (BOOL)validateUsername 
+- (BOOL)validateUsername
 {
     NSMutableCharacterSet *characterSet = [NSMutableCharacterSet alphanumericCharacterSet];
     [characterSet addCharactersInString:@"'_."];
